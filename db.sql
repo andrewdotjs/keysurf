@@ -1,0 +1,10 @@
+CREATE TABLE sentences (
+  sentence_id VARCHAR(50) PRIMARY KEY,
+  sentence VARCHAR(300) NOT NULL
+);
+
+INSERT INTO sentences VALUES ("b9baf8b8-7478-4ffe-a04e-de4c86ad3d5a", "In the heart of the enchanted forest, mystical creatures gather at the moonlit clearing, sharing ancient tales that echo through the rustling leaves and twinkling fireflies. As night deepens, the forest becomes a magical tapestry woven with the threads of imagination and wonder.");
+INSERT INTO sentences VALUES ("0bdf0089-cf39-4096-8844-9b648f8d8ba0", "Amidst the cosmic dance of celestial bodies, a lone comet streaks across the night sky, leaving a trail of stardust as it ventures through the vastness of the universe. Planets and constellations bear witness to the celestial spectacle, casting a mesmerizing glow that captivates astronomers and dreamers alike.");
+INSERT INTO sentences VALUES ("e1a40c86-c760-4efd-8f47-b72be9d6a8ab", "Within the virtual realm of Cyberspace, digital avatars embark on epic quests, exploring pixelated landscapes and battling formidable foes in a quest for virtual supremacy. In this digital arena, friendships are forged, and legends are born within the circuits and code of the digital frontier.");
+INSERT INTO sentences VALUES ("b318ebaa-eb77-4d62-b180-a0bc595edfad", "On the shores of Atlantis, archaeologists unveil the remnants of an ancient civilization, piecing together the mysteries of a lost world beneath the depths of the ocean. Sunken temples and intricate carvings tell stories of a prosperous society that vanished beneath the waves.");
+INSERT INTO sentences VALUES ("f85eeabd-0900-4902-a5f9-8845a42fc95f", "In the bustling city of Neonopolis, sentient robots and humans coexist, navigating the neon-lit streets where futuristic technology meets timeless traditions. Amidst the vibrant energy, a fusion of cultures and technologies creates a metropolis that pulses with life, where the future unfolds in a dazzling display of innovation and diversity.");

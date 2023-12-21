@@ -1,0 +1,73 @@
+:root {
+  background-color: #00509d;
+  color: white;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.game {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Game input styling */
+
+.game-input {
+  width: 60vw;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  transition: all cubic-bezier(.17,.67,.49,.88) 0.1s;
+}
+
+.game-input:focus {
+  outline: none;
+}
+
+.incorrect-input {
+  color: red;
+  border-color: red;
+}
+
+/* Sentence styling */
+
+#sentence {
+  width: calc(60vw + 21px);
+  height: fit-content;
+}
+
+.sentence-letter {
+  font-size: 24px;
+  transition: all linear 0.1s;
+}
+
+.complete {
+  color: rgb(20, 196, 20);
+}
+
+/* Statistics */
+
+.statistics {
+  width: 100vw;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: #032b43;
+}
