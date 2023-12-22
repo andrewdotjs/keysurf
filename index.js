@@ -4,7 +4,6 @@ const app = express();
 
 const PORT = 3000;
 
-app.use("/public", express.static("public"));
 app.use("/dist", express.static("dist"));
 
 app.get("/", (req, res) => {

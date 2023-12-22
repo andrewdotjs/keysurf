@@ -1,15 +1,15 @@
 {
   "name": "keysurf",
   "version": "1.0.0",
-  "description": "",
+  "description": "A quick and fun typing game project built in HTML, CSS, and JS.",
   "main": "index.js",
   "scripts": {
     "start": "node .",
     "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["keyboard", "keysurf", "typing", "game", "html", "css", "js", "javascript"],
+  "author": "andrewdotjs",
+  "license": "MIT",
   "dependencies": {
     "express": "^4.18.2"
   },

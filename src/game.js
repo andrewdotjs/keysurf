@@ -1,64 +1,54 @@
-// This is the guts of the game
+// Main game process for Keysurf
+// andrewdotjs
+
+const createSentenceHTML = require("./lib/html/createSentenceHTML.js");
+const incorrectInput = require("./lib/input/incorrectInput.js");
+const updateTime = require("./lib/stats/updateTime.js");
+const updateProgress = require("./lib/html/updateProgress.js");
+const updateWPM = require("./lib/stats/updateWPM.js");
+const updateCompletion = require("./lib/stats/updateCompletion.js");
+const randomSentence = require("./lib/sentences/randomSentence.js");
+
+let index = 0;
+let secondsPassed = 1;
 
 window.onload = () => {
-  const sentenceBlock = document.getElementById('sentence');
-  const input = document.getElementById('input');
-  const sentence = "This is a test sentence";
-  let index = 0;
-  let seconds = 1;
-  
-  updateCompletion(index, sentence.length);
+  const sentenceBlock = document.getElementById("sentence");
+  const input = document.getElementById("input");
+  const sentence = randomSentence(); // Would like to replace this with a GET request to an external API to alleviate resource demands on client.
 
-  for (let i = 0; i < sentence.length; i++) {
-    sentenceBlock.innerHTML += `<letter class="sentence-letter">${sentence[i]}</letter>`;
-  }
+  createSentenceHTML(sentenceBlock, sentence);
+  const letters = document.getElementsByClassName("sentence-letter");
+  updateCompletion(index, sentence.length); 
+  input.focus();
 
-  input.onkeyup = (event) => {
-    if (event.key === sentence[index]) {
-      event.target.value = "";
-      
-      updateProgress(index);
-      updateCompletion(index, sentence.length);
-      
-      index++;
-      
-      if (index === sentence.length) {
-        clearInterval(intervalID);
-        updateWPM(seconds, sentence);
-      }
+  const timerID = setInterval(() => {
+    updateTime(secondsPassed);
+    secondsPassed++;
+  }, 1000);
+
+  input.oninput = (event) => {
+    switch (event.target.value) {
+      case (sentence[index]):
+        event.target.value = "";
+        updateProgress(index, letters);
+        updateCompletion(index, sentence.length);
+        incorrectInput(false);
+        
+        index++;
+
+        if (index === sentence.length) {
+          clearInterval(timerID);
+          updateWPM(secondsPassed, sentence);
+        }
+        
+        break;
+      case "":
+        incorrectInput(false);
+        break;
+      default:
+        incorrectInput(true);
+        break;
     }
   }
-
-  const intervalID = setInterval(() => {
-    updateTime(seconds);
-    seconds++;
-  }, 1000);
-}
-
-const updateProgress = (index) => {
-  const letters = document.getElementsByClassName("sentence-letter");
-
-  for (let i = 0; i < index + 1; i++) {
-    letters[i].classList.add("complete");
-  }
-}
-
-const updateTime = (rawSeconds) => {
-  let seconds = rawSeconds % 60;
-
-  const minutes = Math.floor(rawSeconds / 60);
-  seconds = seconds < 10 ? `0${seconds}` : seconds;
-  document.getElementById('time').innerText = `${minutes}:${seconds}`;
-}
-
-const updateCompletion = (index, length) => {
-  document.getElementById('completion').innerText = `${index + 1}/${length}`;
-}
-
-const updateWPM = (seconds, sentence) => {
-  const wordCount = sentence.split(" ").length;
-
-  console.log(wordCount);
-
-  document.getElementById('wpm').innerText = Math.floor(wordCount / (seconds / 60));
 }
