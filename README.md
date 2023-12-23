@@ -38,10 +38,6 @@ These are features that I want to add over time whenever I or someone else gets 
 - [ ] Timer for user to get ready before game start
 - [ ] Selectable in-game backgrounds w/ user-friendly way to add their own
 
-## Postmortem
-
-(This will be completed when the feature checklist is complete)
-
 ## License
 
 Copyright 2023 andrewdotjs
