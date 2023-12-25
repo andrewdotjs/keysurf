@@ -1,5 +1,5 @@
-// Main game process for Keysurf
-// andrewdotjs
+// Main game process for Keysurf.
+// Code written by andrewdotjs
 
 const createSentenceHTML = require("./lib/html/createSentenceHTML.js");
 const incorrectInput = require("./lib/input/incorrectInput.js");
