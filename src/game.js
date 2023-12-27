@@ -1,7 +1,7 @@
 // Main game process for Keysurf.
 // Code written by andrewdotjs
 
-const createSentenceHTML = require("./lib/html/createSentenceHTML.js");
+const injectSentenceHTML = require("./lib/html/injectSentenceHTML.js");
 const incorrectInput = require("./lib/input/incorrectInput.js");
 const updateTime = require("./lib/stats/updateTime.js");
 const updateProgress = require("./lib/html/updateProgress.js");
@@ -17,7 +17,7 @@ window.onload = () => {
   const input = document.getElementById("input");
   const sentence = randomSentence(); // Would like to replace this with a GET request to an external API to alleviate resource demands on client.
 
-  createSentenceHTML(sentenceBlock, sentence);
+  injectSentenceHTML(sentenceBlock, sentence);
   const letters = document.getElementsByClassName("sentence-letter");
   updateCompletion(index, sentence.length); 
   input.focus();

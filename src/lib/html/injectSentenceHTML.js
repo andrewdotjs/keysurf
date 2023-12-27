@@ -5,10 +5,10 @@
 * @return {void} Nothing
 */
 
-const createSentenceHTML = (sentenceElement, sentence) => {
+const injectSentenceHTML = (sentenceElement, sentence) => {
   for (let i = 0; i < sentence.length; i++) {
     sentenceElement.innerHTML += `<letter class="sentence-letter">${sentence[i]}</letter>`;
   }
 }
 
-module.exports = createSentenceHTML;
+module.exports = injectSentenceHTML;
